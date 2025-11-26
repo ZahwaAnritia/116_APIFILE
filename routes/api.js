@@ -10,4 +10,4 @@ router.get('/komik/:id', komikController.getKomikById);
 router.put('/komik/:id', upload.single('gambar'), komikController.updateKomik);
 router.delete('/komik/:id', komikController.deleteKomik);
 
-modoule.exports = router;
+module.exports = router;

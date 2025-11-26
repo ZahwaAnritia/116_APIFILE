@@ -43,3 +43,31 @@ module.exports = (sequelize, DataTypes) => {
     // Kembalikan model Komik agar bisa dipakai di file lain
     return Komik;
 };
+module.exports = (sequelize, DataTypes) => {
+    const Komik = sequelize.define("Komik", {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        judul: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        penulis: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        deskripsi: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        imagesType: DataTypes.STRING,
+        imagesName: DataTypes.STRING,
+        imageData: DataTypes.BLOB('long') // konsisten: imageData (bukan ImageData)
+    }, {
+        tableName: "Komik"
+    });
+
+    return Komik;
+};

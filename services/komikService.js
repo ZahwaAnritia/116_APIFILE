@@ -1,20 +1,19 @@
 async function createKomik(database, komikData){
-    const {title, description, aouthor, imagesType, imagesName, imaagesData} = komikData;
+    const {judul, deskripsi, penulis, imagesType, imagesName, imageData} = komikData; // perbaiki typo
 
-    if(!title || !description || !author){
-        throw new Error('Title, description, and author wajib diisi');
+    if(!judul || !deskripsi || !penulis){
+        throw new Error('Judul, deskripsi, and penulis wajib diisi');
     }
     const newKomik = await database.Komik.create({
-        title,
-        description,
-        author,
+        judul,
+        deskripsi,
+        penulis,
         imagesType: imagesType || null,
         imagesName: imagesName || null,
-        ImageData: imaagesData || null,
+        imageData: imageData || null, // konsisten dengan nama field
     });
     return newKomik;
 }
-
 async function getAllKomik(database){
     const komiks = await database.Komik.findAll();
 
