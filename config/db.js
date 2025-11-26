@@ -1,4 +1,4 @@
-const db= rewuire('../models');
+const db= require('../models');
 async function connectDatabase() {
     try {
         await db.sequelize.authenticate();
